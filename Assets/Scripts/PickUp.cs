@@ -137,51 +137,6 @@ public class PickUp : MonoBehaviour
         //}
     }
 
-    //To pull an item from your inventory to use or of the ground
-    public void UseItem(Vector2 target, string itemTag)
-    {
-        if (!inventory.HaveItem(this.name))
-        {
-            //Debug.Log("HIT return");
-            //return;
-        }
-
-        //To store the mouses position
-        Vector2 locationOfMouse = Input.mousePosition;
-        //Grab vector2 for cursor to use in AABB math
-        cursorPosition = Input.mousePosition;
-        cursorPosition = Camera.main.ScreenToWorldPoint(cursorPosition);
-
-        //Selection for objects
-        if (Input.GetMouseButton(1) && !this.frozen)
-        {
-            //AABB collision test for cursor
-            if (cursorPosition.x < this.GetComponent<BoxCollider2D>().bounds.max.x && cursorPosition.x > this.GetComponent<BoxCollider2D>().bounds.min.x)
-            {
-                //Potential collision!
-                //Check the next condition in a nested if statement, just to not have a ton of &'s and to be more efficient
-                if (cursorPosition.y > this.GetComponent<BoxCollider2D>().bounds.min.y && cursorPosition.y < this.GetComponent<BoxCollider2D>().bounds.max.y)
-                {
-                    //Collision!
-                    this.transform.position = cursorPosition;
-
-                    //to see if the item is near the target zone
-                    if (Vector2.Distance(this.transform.position, target) <= 0.2f)
-                    {
-                        //Validating item
-                        if (this.tag != itemTag)
-                        {
-                            Debug.Log("HIT RETURN: " + this.tag + " " + itemTag);
-                            return;
-                        }
-                        //Do something with the target zone and/or the object in use
-                        HitZone(itemTag);
-                    }
-                }
-            }
-        }
-    }
-
     //To pull an item from your inventory to use or of the ground using tags
     public void UseItem(string itemTag, string targetTag)
     {
@@ -225,7 +180,6 @@ public class PickUp : MonoBehaviour
                             return;
                         }
                         //Do something with the target zone and/or the object in use
-                        HitZone(itemTag);
                         if (name == "Badge")
                         {
                             inventory.AddBadge();
@@ -235,94 +189,6 @@ public class PickUp : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-
-    public void HitZone(string item)
-    {
-        switch (item)
-        {
-            case "Cheese":
-                break;
-            case "Baseball":
-                break;
-            case "RC":
-                break;
-            case "Apple":
-                break;
-            case "Stick":
-                //Ball interaction
-                PickUp[] items = FindObjectsOfType<PickUp>();
-                for(int i = 0; i < items.Length; i++)
-                {
-                    if(items[i].tag == "Ball") { items[i].frozen = false; }
-                }
-                break;
-            case "Wrench":
-                //Mechanic Fairy interaction
-                //Drops screwdriver
-                PickUp[] itemss = FindObjectsOfType<PickUp>();
-                for (int i = 0; i < itemss.Length; i++)
-                {
-                    if (itemss[i].tag == "Screwdriver") { itemss[i].frozen = false; }
-                }
-                //gManager.conditionalBools[15] = true;
-                break;
-            case "Glasses":
-                break;
-            case "Flashlight":
-                break;
-            case "Badge":
-                //Employee Dialogue
-                //gManager.conditionalBools[10] = true;
-                break;
-            case "HouseKey":
-                break;
-            case "Scissors":
-                //Cuts scissors
-
-                break;
-            case "Mitten":
-                //Orange Fairy interaction
-                //gManager.conditionalBools[13] = true;
-                Debug.Log("HIT");
-
-                break;
-            case "Pizza":
-                break;
-            case "IDcard":
-                break;
-            case "Pencil":
-                break;
-            case "Battery":
-                break;
-            case "Rock":
-                break;
-            case "Newspaper":
-                break;
-            case "Key":
-                break;
-            case "Cookie":
-                break;
-            case "Soda":
-                break;
-            case "Crowbar":
-                break;
-            case "Papers":
-                break;
-            case "Screwdriver":
-                //FFFFFFFFFFFFFFFFFF
-
-                break;
-            case "Quarters":
-                break;
-            case "Ball":
-                break;
-            case "PizzaBox":
-                break;
-            default:
-                break;
-
         }
     }
 
