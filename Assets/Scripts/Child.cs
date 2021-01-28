@@ -5,7 +5,7 @@ using UnityEngine;
 public class Child : MonoBehaviour
 {
     public string name;
-    public string item;
+    public string correctItem;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +17,15 @@ public class Child : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //Method to check if the item is the correct one or not
+    public bool CheckItem(PickUp item)
+    {
+        if(item.Name == correctItem)
+        {
+            return true;
+        }
+        return false;
     }
 }
