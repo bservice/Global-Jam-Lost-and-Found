@@ -55,12 +55,12 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (!pauseMenu.Paused)
-        {
+        
+        //if (!pauseMenu.Paused)
+        //{
             CheckForClick();            
-        }
-        */
+        //}
+        
     }
 
     //Method to check for click
@@ -84,6 +84,7 @@ public class PickUp : MonoBehaviour
                     {
                     //Collision!
                         childQueue.AddActiveItem(this);
+                        transform.position =  new Vector2(100.0f, 100.0f);
                         return true;
                     }
                 }
