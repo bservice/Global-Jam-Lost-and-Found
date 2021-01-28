@@ -43,12 +43,14 @@ public class ChildQueue : MonoBehaviour
         if (activeItem != null)
         {
             bool test = CheckChildItem();
+            Debug.Log(test);
             activeItem = null;
             prevChildX = activeChild.transform.position.x;
             prevChildY = activeChild.transform.position.y;
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
             activeChild = null;
-            CreateNewChild(prevChildX, prevChildY);
+            if(possibleChildren.Count > 0)
+                CreateNewChild(prevChildX, prevChildY);
         }
     }
 
