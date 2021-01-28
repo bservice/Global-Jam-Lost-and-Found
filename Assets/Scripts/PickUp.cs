@@ -6,8 +6,8 @@ public class PickUp : MonoBehaviour
 {
     public string name;
     private Inventory inventory;
-    public InteractingObjects interObjRef;
-    public GameManager gManager;
+    //public InteractingObjects interObjRef;
+    //public GameManager gManager;
 
     public bool frozen = false;
     public bool talking = false;
@@ -16,7 +16,7 @@ public class PickUp : MonoBehaviour
 
     private bool added;
 
-    private PauseTest pauseMenu;
+    //private PauseTest pauseMenu;
 
     private AudioSource soundEffect;
 
@@ -27,7 +27,7 @@ public class PickUp : MonoBehaviour
     public Vector2 hotSpot = Vector2.zero;
 
     // Dialogue for the item once it's in the inventory.
-    public Dialogue invDialogue;
+    //public Dialogue invDialogue;
 
     public string Name
     {
@@ -47,82 +47,37 @@ public class PickUp : MonoBehaviour
     void Start()
     {        
         inventory = FindObjectOfType<Inventory>();
-        pauseMenu = FindObjectOfType<PauseTest>();
+        //pauseMenu = FindObjectOfType<PauseTest>();
         added = false;
         soundEffect = GetComponent<AudioSource>();
 
-        if (this.tag == "Ball" || this.tag == "Screwdriver") { frozen = true; }
 
-        gManager = FindObjectOfType<GameManager>();
+        //gManager = FindObjectOfType<GameManager>();
 
+        /*
         if(pauseMenu == null)
         {
             pauseMenu = new PauseTest();
         }
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (!pauseMenu.Paused)
         {
-            CheckForClick();
-            if (this.tag == "Badge") { UseItem("Badge", "t_badge"); }
-
-            if (this.tag == "Stick") { UseItem(this.tag, "t_Tree"); }
-
-            if (this.tag == "Wrench") { UseItem(this.tag, "t_MechanicFairy"); }
-
-            if (this.tag == "Mitten") { UseItem(this.tag, "t_GreenFairy"); }
-
-            if (this.tag == "Wrench") { UseItem(this.tag, "t_MechanicFairy"); }
-
-            if (this.tag == "Scissors") { UseItem(this.tag, "t_Web"); }
-
-            if (this.tag == "Mitten") { UseItem(this.tag, "t_GreenFairy"); }
-
-            if (this.tag == "Ball" || this.tag == "Screwdriver")
-            {
-                if(!this.frozen && this.transform.position.y > -0.25)
-                {
-                    Vector3 newY = this.transform.position;
-                    newY.y -= 0.01f;
-                    this.transform.position = newY;
-                }
-
-                UseItem("Ball", "Target"); 
-                UseItem("Screwdriver", "Target"); 
-            }
+            CheckForClick();            
         }
-
-        if (inventory.HaveItem("Cheese"))
-        {
-            gManager.hasCheese = true;
-        }
-        if (inventory.HaveItem("Pizzabox"))
-        {
-            gManager.hasPizzaBox = true;
-        }
-        if (inventory.HaveItem("Tomato"))
-        {
-            gManager.hasTomatoe = true;
-        }
-        if (inventory.HaveItem("Pizzabox"))
-        {
-            gManager.hasPizzaBox = true;
-        }
-        if (inventory.HaveItem("Water Sludge"))
-        {
-            gManager.hasWater = true;
-        }
-        Debug.Log(gManager.hasWater);
+        */
     }
 
     //Method to check for click
     public bool CheckForClick()
     {
-        if (!pauseMenu.Paused)
-        {
+        //if (!pauseMenu.Paused)
+        //{
             //Grab vector2 for cursor to use in AABB math
             cursorPosition = Input.mousePosition;
             cursorPosition = Camera.main.ScreenToWorldPoint(cursorPosition);
@@ -143,11 +98,11 @@ public class PickUp : MonoBehaviour
                         if (added)
                         {
                             //transform.position = new Vector2(100.0f, 100.0f);  Commenting this out so that players don't accidentally delete their items.
-                            if (interObjRef != null)
-                                interObjRef.Temp = this;
+                            //if (interObjRef != null)
+                                //interObjRef.Temp = this;
                             //inventory.RemoveItem(this);  Commenting this out so that players don't accidentally delete their items.
                             // Adding fun dialogue instead!
-                            FindObjectOfType<DialogueManager>().StartDialogue(invDialogue);
+                            //FindObjectOfType<DialogueManager>().StartDialogue(invDialogue);
                         }
                         else
                         {
@@ -165,21 +120,21 @@ public class PickUp : MonoBehaviour
                 }
             }
             return false;
-        }
-        return false;
+        //}
+        //return false;
     }
 
     // Triggers dialogue about the pickup.
     public void OnMouseDown()
     {
-        if (!pauseMenu.Paused)
-        {
+        //if (!pauseMenu.Paused)
+        //{
             if (!added)
             {
                 //GetComponent<SpriteRenderer>().enabled = false;
-                GetComponent<DialogueTrigger>().TriggerDialogue();
+                //GetComponent<DialogueTrigger>().TriggerDialogue();
             }
-        }
+        //}
     }
 
     //To pull an item from your inventory to use or of the ground
@@ -311,7 +266,7 @@ public class PickUp : MonoBehaviour
                 {
                     if (itemss[i].tag == "Screwdriver") { itemss[i].frozen = false; }
                 }
-                gManager.conditionalBools[15] = true;
+                //gManager.conditionalBools[15] = true;
                 break;
             case "Glasses":
                 break;
@@ -319,7 +274,7 @@ public class PickUp : MonoBehaviour
                 break;
             case "Badge":
                 //Employee Dialogue
-                gManager.conditionalBools[10] = true;
+                //gManager.conditionalBools[10] = true;
                 break;
             case "HouseKey":
                 break;
@@ -329,7 +284,7 @@ public class PickUp : MonoBehaviour
                 break;
             case "Mitten":
                 //Orange Fairy interaction
-                gManager.conditionalBools[13] = true;
+                //gManager.conditionalBools[13] = true;
                 Debug.Log("HIT");
 
                 break;
