@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Child : MonoBehaviour
+public class ChildQueue : MonoBehaviour
 {
-    public string name;
-    public string item;
+    public Child activeChild;
 
     // Start is called before the first frame update
     void Start()
