@@ -42,6 +42,10 @@ public class ChildQueue : MonoBehaviour
     //Pause menu object
     public PauseTest pauseMenu;
 
+    //List of all the textboxes 
+    public List<GameObject> textboxes; 
+
+
     //Property to get the number of possible children
     public int ChildCount
     {
