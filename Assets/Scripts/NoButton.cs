@@ -6,12 +6,17 @@ public class NoButton : MonoBehaviour
 {
     public ChildQueue childQueue;
 
+    private AudioSource soundEffect;
+
+    //Uncomment once we have no sound
+    //public AudioClip noSound;
+
     Vector2 cursorPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        soundEffect = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -19,6 +24,8 @@ public class NoButton : MonoBehaviour
     {
         if(CheckForClick())
         {
+            //Uncomment once we have no sound
+            //soundEffect.PlayOneShot(noSound);
             childQueue.Deny();
         }
     }
