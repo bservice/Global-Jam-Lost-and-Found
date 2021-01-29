@@ -124,4 +124,19 @@ public class ChildQueue : MonoBehaviour
     {
         availableItems.Remove(item);
     }
+
+    //Method for if you deny a child an item
+    public void Deny()
+    {
+        if (activeChild != null)
+        {
+            //Move child way out of the way
+            activeChild.transform.position = new Vector2(200.0f, 200.0f);
+            //Set the active child to null so that it can be set new
+            activeChild = null;
+            //As long as the available items is above zero, keep creating new children **************NOTE: This will probably be replaced with a limit so that not every kid is used every time
+            if (availableItems.Count > 0 && possibleChildren.Count > 0)
+                CreateNewChild(prevChildX, prevChildY);
+        }
+    }
 }
