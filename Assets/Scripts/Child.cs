@@ -6,6 +6,7 @@ public class Child : MonoBehaviour
 {
     public string correctItem;
     public int textBoxNumber; //Number used to figure out what textbox to display
+    private List<GameObject> textboxes; //List of all the textboxes 
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +38,24 @@ public class Child : MonoBehaviour
         //Sets the child's dialogue hint to match the item they have
         switch (item.name)
         {
-            case "Baseball": textBoxNumber = 0; break;
+            case "Ball": textBoxNumber = 0; break;
+            case "Blocks": textBoxNumber = 1; break;
             case "Signed Ball": textBoxNumber = 1; break;
-            
+            case "Cat": textBoxNumber = 1; break;
+            case "Cactus": textBoxNumber = 1; break;
+            case "Crayons": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
+            case "Glasses": textBoxNumber = 1; break;
+            case "Glove": textBoxNumber = 1; break;
+            case "Hat": textBoxNumber = 1; break;
+            case "Juice Box": textBoxNumber = 1; break;
+            case "": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
+            case "Game Boy": textBoxNumber = 1; break;
 
         }
     }
@@ -49,4 +65,11 @@ public class Child : MonoBehaviour
     {
         correctItem = item;
     }
+
+    //Displays textbox relating to correct item's hint
+    public void DisplayTextbox()
+    {
+
+    }
+
 }
