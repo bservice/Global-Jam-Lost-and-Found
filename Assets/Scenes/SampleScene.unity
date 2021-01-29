@@ -2486,6 +2486,8 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+  correct: {fileID: 8300000, guid: b397bd9f7e3a02643b6991f12406d348, type: 3}
+  incorrect: {fileID: 8300000, guid: 59f2a05fd3e26ea47998fe534129cdd0, type: 3}
 --- !u!1 &1089601386
 GameObject:
   m_ObjectHideFlags: 0
