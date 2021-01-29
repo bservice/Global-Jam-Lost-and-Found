@@ -50,13 +50,13 @@ public class Child : MonoBehaviour
             case "Hat": textBoxNumber = 1; break;
             case "Juice Box": textBoxNumber = 1; break;
             case "": textBoxNumber = 1; break;
+            /*case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
-            case "Game Boy": textBoxNumber = 1; break;
-
+            */
         }
     }
 
