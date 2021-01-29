@@ -3294,6 +3294,14 @@ PrefabInstance:
       propertyPath: frozen
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7581290594976038634, guid: 8fd1edbb927dff74a89cb8ff9afcfc01, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff793ae1273bf264dac4f8b96e720db1, type: 3}
+    - target: {fileID: 7581290594976038634, guid: 8fd1edbb927dff74a89cb8ff9afcfc01, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7581290594976038635, guid: 8fd1edbb927dff74a89cb8ff9afcfc01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5270004
