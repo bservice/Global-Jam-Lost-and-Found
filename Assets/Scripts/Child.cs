@@ -28,4 +28,10 @@ public class Child : MonoBehaviour
         }
         return false;
     }
+
+    //Method to assign a child the correct item
+    public void AssignItem(PickUp item)
+    {
+        correctItem = item.name;
+    }
 }
