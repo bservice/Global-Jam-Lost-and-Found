@@ -5,6 +5,7 @@ using UnityEngine;
 public class Child : MonoBehaviour
 {
     public string correctItem;
+    public int textBoxNumber; //Number used to figure out what textbox to display
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,15 @@ public class Child : MonoBehaviour
     public void AssignItem(PickUp item)
     {
         correctItem = item.name;
+
+        //Sets the child's dialogue hint to match the item they have
+        switch (item.name)
+        {
+            case "Baseball": textBoxNumber = 0; break;
+            case "Signed Ball": textBoxNumber = 1; break;
+            
+
+        }
     }
 
     //Overloaded method for children with no real item

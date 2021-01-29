@@ -14,7 +14,6 @@ public class PickUp : MonoBehaviour
 
     Vector2 cursorPosition;
 
-
     //private PauseTest pauseMenu;
 
     private AudioSource soundEffect;
@@ -27,7 +26,6 @@ public class PickUp : MonoBehaviour
 
     // Dialogue for the item once it's in the inventory.
     //public Dialogue invDialogue;
-
     public string Name
     {
         get { return name; }
