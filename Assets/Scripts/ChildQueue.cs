@@ -21,6 +21,12 @@ public class ChildQueue : MonoBehaviour
     private float prevChildX;
     private float prevChildY;
 
+    //Style for score text
+    private GUIStyle style;
+
+    //Score
+    private int score;
+
     //Property to get the number of possible children
     public int ChildCount
     {
@@ -36,6 +42,10 @@ public class ChildQueue : MonoBehaviour
         prevChildX = 0.0f;
         prevChildY = 0.0f;
         CreateNewChild(prevChildX, prevChildY);
+        style = new GUIStyle();
+        style.fontSize = 25;
+        style.normal.textColor = Color.white;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -68,8 +78,16 @@ public class ChildQueue : MonoBehaviour
         if (activeItem != null)
         {
             //Checking if the item the player clicked is the correct one
-            bool test = CheckChildItem();
-            Debug.Log(test);
+            if(CheckChildItem())
+            {
+                //100 points for correct guess
+                score += 100;
+            }
+            else
+            {
+                //Lose 25 on wrong guess
+                score -= 25;
+            }
             //Set the active item to null so the child doesn't keep getting updated until a new one is clicked
             activeItem = null;
             //Get the previous position of the active child so that the new child can be placed ***********NOTE: this will probably be a static number so this can be replaced
@@ -173,5 +191,12 @@ public class ChildQueue : MonoBehaviour
             if (possibleChildren.Count > 0)
                 CreateNewChild(prevChildX, prevChildY);
         }
+    }
+
+    //Displaying the score
+    private void OnGUI()
+    {
+        //Score
+        GUI.Label(new Rect(90.0f, 42.0f, 22, 19), score.ToString(), style);
     }
 }
