@@ -7,6 +7,7 @@ public class Child : MonoBehaviour
     public string name;
     public string correctItem;
 
+
     // Start is called before the first frame update
     void Start()
     {

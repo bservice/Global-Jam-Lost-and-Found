@@ -18,11 +18,18 @@ public class ChildQueue : MonoBehaviour
     private float prevChildX;
     private float prevChildY;
 
+    //Property to get the number of possible children
+    public int ChildCount
+    {
+        get { return possibleChildren.Count; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         availableItems = new List<PickUp>();
         GetAvailableItems();
+        AssignItemsToChildren();
         prevChildX = 0.0f;
         prevChildY = 0.0f;
         CreateNewChild(prevChildX, prevChildY);
@@ -31,7 +38,11 @@ public class ChildQueue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateChild();
+        //Only allow update if there are still available children
+        if(possibleChildren.Count > 0)
+        {
+            UpdateChild();
+        }
     }
 
     //Uses the active child and active item to use Child's check item method
@@ -65,8 +76,8 @@ public class ChildQueue : MonoBehaviour
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
             //Set the active child to null so that it can be set new
             activeChild = null;
-            //As long as the available items is above zero, keep creating new children **************NOTE: This will probably be replaced with a limit so that not every kid is used every time
-            if(availableItems.Count > 0)
+            //As long as the possible children is above zero, keep creating new children
+            if(possibleChildren.Count > 0)
                 CreateNewChild(prevChildX, prevChildY);
         }
     }
@@ -82,8 +93,6 @@ public class ChildQueue : MonoBehaviour
         possibleChildren.RemoveAt(rand);
         //Set the child's position
         activeChild.transform.position = new Vector2(x, y);
-        //Assign an item to a child
-        AssignChildItem();
     }
 
     //Get 15 random items from the possible items list and add them to the available items list
@@ -103,20 +112,40 @@ public class ChildQueue : MonoBehaviour
         }        
     }
 
-    //Assign child an item
-    public void AssignChildItem()
+    //Assign all children an item or no item
+    public void AssignItemsToChildren()
     {
-        //Random percent of being a child with no item
-        int noItemRand = Random.Range(0, 100);
-        if(0 <= noItemRand && noItemRand <= 10)
+        //Loop through possible children until everyone item has been assigned
+        for (int i = 0; i < possibleChildren.Count; i++)
         {
-            activeChild.AssignItem("None");
-            return;
+            //As long as there are available items, assign one to the child or possibly get a "none" assignment 
+            if (availableItems.Count > 0)
+            {
+                //Random percent of being a child with no item
+                int noItemRand = Random.Range(0, 100);
+                if (0 <= noItemRand && noItemRand <= 10)
+                {
+                    possibleChildren[i].AssignItem("None");
+                }
+                //If the child doesn't get "none" go give them a random item
+                else
+                {
+                    //Get random number in range of the list
+                    int rand = Random.Range(0, availableItems.Count);
+                    //Assign the item to the current child at the random index
+                    possibleChildren[i].AssignItem(availableItems[rand]);
+                    //Remove the item from availability
+                    availableItems.RemoveAt(rand);
+
+                
+                }
+            }
+            //If there are still children that need an assignment and there are no items left, the rest get "none"
+            else
+            {
+                possibleChildren[i].AssignItem("None");
+            }
         }
-        //Get random number in range of the list
-        int rand = Random.Range(0, availableItems.Count);
-        //Assign the item to the active child at the random index
-        activeChild.AssignItem(availableItems[rand]);
     }
     
     //Method to remove item from available items, called in PickUp.cs when item is clicked
@@ -134,8 +163,8 @@ public class ChildQueue : MonoBehaviour
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
             //Set the active child to null so that it can be set new
             activeChild = null;
-            //As long as the available items is above zero, keep creating new children **************NOTE: This will probably be replaced with a limit so that not every kid is used every time
-            if (availableItems.Count > 0 && possibleChildren.Count > 0)
+            //As long as the available items is above zero, keep creating new children
+            if (possibleChildren.Count > 0)
                 CreateNewChild(prevChildX, prevChildY);
         }
     }
