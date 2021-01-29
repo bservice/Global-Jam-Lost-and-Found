@@ -84,6 +84,7 @@ public class PickUp : MonoBehaviour
                     {
                     //Collision!
                         childQueue.AddActiveItem(this);
+                        childQueue.RemoveItem(this);
                         transform.position =  new Vector2(100.0f, 100.0f);
                         return true;
                     }

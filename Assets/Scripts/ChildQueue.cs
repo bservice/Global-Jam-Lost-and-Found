@@ -13,7 +13,7 @@ public class ChildQueue : MonoBehaviour
     public List<PickUp> possibleItems;
 
     //List of items that are on display and available
-    private List<PickUp> availableItems;
+    public List<PickUp> availableItems;
 
     private float prevChildX;
     private float prevChildY;
@@ -117,7 +117,11 @@ public class ChildQueue : MonoBehaviour
         int rand = Random.Range(0, availableItems.Count);
         //Assign the item to the active child at the random index
         activeChild.AssignItem(availableItems[rand]);
-        //Remove the item from available items
-        availableItems.RemoveAt(rand);        
+    }
+    
+    //Method to remove item from available items, called in PickUp.cs when item is clicked
+    public void RemoveItem(PickUp item)
+    {
+        availableItems.Remove(item);
     }
 }
