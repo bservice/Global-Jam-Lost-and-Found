@@ -50,6 +50,7 @@ public class Child : MonoBehaviour
             case "Hat": textBoxNumber = 1; break;
             case "Juice Box": textBoxNumber = 1; break;
             case "": textBoxNumber = 1; break;
+<<<<<<< HEAD
             /*case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
@@ -57,6 +58,15 @@ public class Child : MonoBehaviour
             case "Game Boy": textBoxNumber = 1; break;
             case "Game Boy": textBoxNumber = 1; break;
             */
+=======
+            //case "Game Boy": textBoxNumber = 1; break;
+            //case "Game Boy": textBoxNumber = 1; break;
+            //case "Game Boy": textBoxNumber = 1; break;
+            //case "Game Boy": textBoxNumber = 1; break;
+            //case "Game Boy": textBoxNumber = 1; break;
+            //case "Game Boy": textBoxNumber = 1; break;
+
+>>>>>>> be10ab00e302dd26ee0e32a8bc43a4a90f3d7547
         }
     }
 
