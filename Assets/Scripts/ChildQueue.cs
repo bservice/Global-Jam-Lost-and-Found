@@ -128,14 +128,14 @@ public class ChildQueue : MonoBehaviour
             if (availableItems.Count > 0)
             {
                 //Random percent of being a child with no item
-                int noItemRand = Random.Range(0, 100);
-                if (0 <= noItemRand && noItemRand <= 10)
-                {
-                    possibleChildren[i].AssignItem("None");
-                }
+                //int noItemRand = Random.Range(0, 100);
+                //if (0 <= noItemRand && noItemRand <= 10)
+                //{
+                    //possibleChildren[i].AssignItem("None");
+                //}
                 //If the child doesn't get "none" go give them a random item
-                else
-                {
+                //else
+                //{
                     //Get random number in range of the list
                     int rand = Random.Range(0, availableItems.Count);
                     //Assign the item to the current child at the random index
@@ -144,7 +144,7 @@ public class ChildQueue : MonoBehaviour
                     availableItems.RemoveAt(rand);
 
                 
-                }
+                //}
             }
             //If there are still children that need an assignment and there are no items left, the rest get "none"
             else
