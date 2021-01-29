@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChildQueue : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class ChildQueue : MonoBehaviour
     //Score
     private int score;
 
+    //Keep track of used items
+    private int usedItems;
+
+    //Object to hold score when game is over
+    private ScoreHolder scoreHolder;
+
     //Property to get the number of possible children
     public int ChildCount
     {
@@ -41,6 +48,7 @@ public class ChildQueue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreHolder = FindObjectOfType<ScoreHolder>();
         soundEffect = GetComponent<AudioSource>();
         availableItems = new List<PickUp>();
         GetAvailableItems();
@@ -50,15 +58,21 @@ public class ChildQueue : MonoBehaviour
         style.fontSize = 25;
         style.normal.textColor = Color.white;
         score = 0;
+        usedItems = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Only allow update if there are still available children
-        if(possibleChildren.Count > 0)
+        //Only allow update if there are still available children and items 
+        if(possibleChildren.Count > 0 && usedItems < 15)
         {
             UpdateChild();
+        }
+        //If there are no more items or children, end game
+        else
+        {
+            GameOver();
         }
     }
 
@@ -81,6 +95,8 @@ public class ChildQueue : MonoBehaviour
     {
         if (activeItem != null)
         {
+            //Update how many items were used
+            usedItems++;
             //Checking if the item the player clicked is the correct one
             if(CheckChildItem())
             {
@@ -206,4 +222,12 @@ public class ChildQueue : MonoBehaviour
         //Score
         GUI.Label(new Rect(90.0f, 42.0f, 22, 19), score.ToString(), style);
     }
+
+    //End game method will be called once there are no more kids or there are no items left
+    public void GameOver()
+    {
+        scoreHolder.GetScore(score);
+        SceneManager.LoadScene("GameOver");
+    }
+
 }
