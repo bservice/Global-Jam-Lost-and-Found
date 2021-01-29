@@ -19,8 +19,12 @@ public class ChildQueue : MonoBehaviour
     public List<PickUp> availableItems;
     public List<Vector2> itemCoords;
 
-    private float prevChildX;
-    private float prevChildY;
+    //AudioSource for correct and incorrect sounds
+    private AudioSource soundEffect;
+
+    //Audio clips
+    public AudioClip correct;
+    public AudioClip incorrect;
 
     //Style for score text
     private GUIStyle style;
@@ -37,11 +41,10 @@ public class ChildQueue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundEffect = GetComponent<AudioSource>();
         availableItems = new List<PickUp>();
         GetAvailableItems();
         AssignItemsToChildren();
-        prevChildX = 3.31f;
-        prevChildY = -1.268f;
         CreateNewChild();
         style = new GUIStyle();
         style.fontSize = 25;
@@ -83,11 +86,13 @@ public class ChildQueue : MonoBehaviour
             {
                 //100 points for correct guess
                 score += 100;
+                soundEffect.PlayOneShot(correct);
             }
             else
             {
                 //Lose 25 on wrong guess
                 score -= 25;
+                soundEffect.PlayOneShot(incorrect);
             }
             //Set the active item to null so the child doesn't keep getting updated until a new one is clicked
             activeItem = null;
