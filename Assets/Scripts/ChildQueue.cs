@@ -15,8 +15,9 @@ public class ChildQueue : MonoBehaviour
     //List of possible sprites for the children to have
     public List<Sprite> possibleSprites;
 
-    //List of items that are on display and available
+    //List of items that are on display and available and list for their coordinates
     public List<PickUp> availableItems;
+    public List<Vector2> itemCoords;
 
     private float prevChildX;
     private float prevChildY;
@@ -39,9 +40,9 @@ public class ChildQueue : MonoBehaviour
         availableItems = new List<PickUp>();
         GetAvailableItems();
         AssignItemsToChildren();
-        prevChildX = 0.0f;
-        prevChildY = 0.0f;
-        CreateNewChild(prevChildX, prevChildY);
+        prevChildX = 3.31f;
+        prevChildY = -1.268f;
+        CreateNewChild();
         style = new GUIStyle();
         style.fontSize = 25;
         style.normal.textColor = Color.white;
@@ -91,20 +92,20 @@ public class ChildQueue : MonoBehaviour
             //Set the active item to null so the child doesn't keep getting updated until a new one is clicked
             activeItem = null;
             //Get the previous position of the active child so that the new child can be placed ***********NOTE: this will probably be a static number so this can be replaced
-            prevChildX = activeChild.transform.position.x;
-            prevChildY = activeChild.transform.position.y;
+            //prevChildX = activeChild.transform.position.x;
+            //prevChildY = activeChild.transform.position.y;
             //Move child way out of the way
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
             //Set the active child to null so that it can be set new
             activeChild = null;
             //As long as the possible children is above zero, keep creating new children
             if(possibleChildren.Count > 0)
-                CreateNewChild(prevChildX, prevChildY);
+                CreateNewChild();
         }
     }
 
     //Creates new child
-    public void CreateNewChild(float x, float y)
+    public void CreateNewChild()
     {
         //Get random number in range of the list
         int rand = Random.Range(0, possibleChildren.Count);
@@ -113,7 +114,7 @@ public class ChildQueue : MonoBehaviour
         //Remove the child from the possible children list
         possibleChildren.RemoveAt(rand);
         //Set the child's position
-        activeChild.transform.position = new Vector2(x, y);
+        activeChild.transform.position = new Vector2(-2.3f, -0.14f);
         //Give the child a random sprite
         int rand2 = Random.Range(0, possibleSprites.Count);
         activeChild.GetComponent<SpriteRenderer>().sprite = possibleSprites[rand2];
@@ -133,6 +134,7 @@ public class ChildQueue : MonoBehaviour
             possibleItems.RemoveAt(rand);
             //*****TO-DO:******
             //Move each of the items into the correct spot on the shelf
+            availableItems[i].transform.position = itemCoords[i];
         }        
     }
 
@@ -189,7 +191,7 @@ public class ChildQueue : MonoBehaviour
             activeChild = null;
             //As long as the available items is above zero, keep creating new children
             if (possibleChildren.Count > 0)
-                CreateNewChild(prevChildX, prevChildY);
+                CreateNewChild();
         }
     }
 
