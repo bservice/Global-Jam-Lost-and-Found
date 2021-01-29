@@ -69,7 +69,12 @@ public class Child : MonoBehaviour
     //Displays textbox relating to correct item's hint
     public void DisplayTextbox()
     {
-
+        textboxes[textBoxNumber].SetActive(true);
+    }
+    //Hides textbox relating to correct item's hint
+    public void HideTextbox()
+    {
+        textboxes[textBoxNumber].SetActive(false);
     }
 
 }

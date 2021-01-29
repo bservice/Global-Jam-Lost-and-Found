@@ -117,6 +117,8 @@ public class ChildQueue : MonoBehaviour
             //prevChildY = activeChild.transform.position.y;
             //Move child way out of the way
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
+            //Remove the active child's hint
+            activeChild.HideTextbox();
             //Set the active child to null so that it can be set new
             activeChild = null;
             //As long as the possible children is above zero, keep creating new children
@@ -139,6 +141,7 @@ public class ChildQueue : MonoBehaviour
         //Give the child a random sprite
         int rand2 = Random.Range(0, possibleSprites.Count);
         activeChild.GetComponent<SpriteRenderer>().sprite = possibleSprites[rand2];
+        activeChild.DisplayTextbox();
     }
 
     //Get 15 random items from the possible items list and add them to the available items list
