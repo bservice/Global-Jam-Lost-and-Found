@@ -65,8 +65,8 @@ public class ChildQueue : MonoBehaviour
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
             //Set the active child to null so that it can be set new
             activeChild = null;
-            //As long as the possible children is above zero, keep creating new ones **************NOTE: This will probably be replaced with a limit so that not every kid is used every time
-            if(possibleChildren.Count > 0)
+            //As long as the available items is above zero, keep creating new children **************NOTE: This will probably be replaced with a limit so that not every kid is used every time
+            if(availableItems.Count > 0)
                 CreateNewChild(prevChildX, prevChildY);
         }
     }
@@ -106,6 +106,13 @@ public class ChildQueue : MonoBehaviour
     //Assign child an item
     public void AssignChildItem()
     {
+        //Random percent of being a child with no item
+        int noItemRand = Random.Range(0, 100);
+        if(0 <= noItemRand && noItemRand <= 10)
+        {
+            activeChild.AssignItem("None");
+            return;
+        }
         //Get random number in range of the list
         int rand = Random.Range(0, availableItems.Count);
         //Assign the item to the active child at the random index

@@ -34,4 +34,10 @@ public class Child : MonoBehaviour
     {
         correctItem = item.name;
     }
+
+    //Overloaded method for children with no real item
+    public void AssignItem(string item)
+    {
+        correctItem = item;
+    }
 }
