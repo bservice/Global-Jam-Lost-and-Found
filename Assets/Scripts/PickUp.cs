@@ -14,8 +14,7 @@ public class PickUp : MonoBehaviour
 
     Vector2 cursorPosition;
 
-
-    //private PauseTest pauseMenu;
+    private PauseTest pauseMenu;
 
     private AudioSource soundEffect;
 
@@ -27,7 +26,6 @@ public class PickUp : MonoBehaviour
 
     // Dialogue for the item once it's in the inventory.
     //public Dialogue invDialogue;
-
     public string Name
     {
         get { return name; }
@@ -37,7 +35,7 @@ public class PickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        //pauseMenu = FindObjectOfType<PauseTest>();
+        pauseMenu = FindObjectOfType<PauseTest>();
         soundEffect = GetComponent<AudioSource>();
         childQueue = FindObjectOfType<ChildQueue>();
 
@@ -55,20 +53,18 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(childQueue.ChildCount > 0)
+        if (!pauseMenu.Paused)
         {
-            if (CheckForClick())
+            if (childQueue.ChildCount > 0)
             {
-                childQueue.AddActiveItem(this);
-                //childQueue.RemoveItem(this);
-                transform.position = new Vector2(100.0f, 100.0f);
+                if (CheckForClick())
+                {
+                    childQueue.AddActiveItem(this);
+                    //childQueue.RemoveItem(this);
+                    transform.position = new Vector2(100.0f, 100.0f);
+                }
             }
-        }        
-        
-        //if (!pauseMenu.Paused)
-        //{
-            
-        //}
+        }
         
     }
 

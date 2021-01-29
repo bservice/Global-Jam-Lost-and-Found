@@ -39,6 +39,9 @@ public class ChildQueue : MonoBehaviour
     //Object to hold score when game is over
     private ScoreHolder scoreHolder;
 
+    //Pause menu object
+    public PauseTest pauseMenu;
+
     //Property to get the number of possible children
     public int ChildCount
     {
@@ -48,15 +51,15 @@ public class ChildQueue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        style = new GUIStyle();
+        style.fontSize = 25;
+        style.normal.textColor = Color.white;
         scoreHolder = FindObjectOfType<ScoreHolder>();
         soundEffect = GetComponent<AudioSource>();
         availableItems = new List<PickUp>();
         GetAvailableItems();
         AssignItemsToChildren();
         CreateNewChild();
-        style = new GUIStyle();
-        style.fontSize = 25;
-        style.normal.textColor = Color.white;
         score = 0;
         usedItems = 0;
     }
@@ -64,15 +67,18 @@ public class ChildQueue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Only allow update if there are still available children and items 
-        if(possibleChildren.Count > 0 && usedItems < 15)
+        if (!pauseMenu.Paused)
         {
-            UpdateChild();
-        }
-        //If there are no more items or children, end game
-        else
-        {
-            GameOver();
+            //Only allow update if there are still available children and items 
+            if (possibleChildren.Count > 0 && usedItems < 15)
+            {
+                UpdateChild();
+            }
+            //If there are no more items or children, end game
+            else
+            {
+                GameOver();
+            }
         }
     }
 
@@ -117,6 +123,8 @@ public class ChildQueue : MonoBehaviour
             //prevChildY = activeChild.transform.position.y;
             //Move child way out of the way
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
+            //Remove the active child's hint
+            activeChild.HideTextbox();
             //Set the active child to null so that it can be set new
             activeChild = null;
             //As long as the possible children is above zero, keep creating new children
@@ -139,6 +147,7 @@ public class ChildQueue : MonoBehaviour
         //Give the child a random sprite
         int rand2 = Random.Range(0, possibleSprites.Count);
         activeChild.GetComponent<SpriteRenderer>().sprite = possibleSprites[rand2];
+        activeChild.DisplayTextbox();
     }
 
     //Get 15 random items from the possible items list and add them to the available items list
