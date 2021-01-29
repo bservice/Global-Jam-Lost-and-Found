@@ -12,6 +12,9 @@ public class ChildQueue : MonoBehaviour
     public List<Child> possibleChildren;
     public List<PickUp> possibleItems;
 
+    //List of possible sprites for the children to have
+    public List<Sprite> possibleSprites;
+
     //List of items that are on display and available
     public List<PickUp> availableItems;
 
@@ -93,6 +96,9 @@ public class ChildQueue : MonoBehaviour
         possibleChildren.RemoveAt(rand);
         //Set the child's position
         activeChild.transform.position = new Vector2(x, y);
+        //Give the child a random sprite
+        int rand2 = Random.Range(0, possibleSprites.Count);
+        activeChild.GetComponent<SpriteRenderer>().sprite = possibleSprites[rand2];
     }
 
     //Get 15 random items from the possible items list and add them to the available items list
