@@ -143,7 +143,7 @@ public class ChildQueue : MonoBehaviour
         //Remove the child from the possible children list
         possibleChildren.RemoveAt(rand);
         //Set the child's position
-        activeChild.transform.position = new Vector2(-2.3f, -0.14f);
+        activeChild.transform.position = new Vector2(-1.7f, 0.07f);
         //Give the child a random sprite
         int rand2 = Random.Range(0, possibleSprites.Count);
         activeChild.GetComponent<SpriteRenderer>().sprite = possibleSprites[rand2];
