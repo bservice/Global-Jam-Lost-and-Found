@@ -49,6 +49,7 @@ public class ChildQueue : MonoBehaviour
     private List<string> noItems;
 
 
+
     //Property to get the number of possible children
     public int ChildCount
     {
@@ -71,6 +72,7 @@ public class ChildQueue : MonoBehaviour
         CreateNewChild();
         score = 0;
         usedItems = 0;
+        
     }
 
     // Update is called once per frame

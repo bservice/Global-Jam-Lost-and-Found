@@ -10,6 +10,14 @@ public class NoButton : MonoBehaviour
 
     public PauseTest pauseMenu;
 
+    public Sprite spriteUnpressed;
+
+    public Sprite spritePressed; //The sprite to display when the button is pressed
+
+    bool pressed;
+
+    float time; //Keeps the button down for a certain amount of time
+
     //Uncomment once we have no sound
     //public AudioClip noSound;
 
@@ -19,6 +27,7 @@ public class NoButton : MonoBehaviour
     void Start()
     {
         soundEffect = GetComponent<AudioSource>();
+        spriteUnpressed = this.GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -26,15 +35,34 @@ public class NoButton : MonoBehaviour
     {
         if (!pauseMenu.Paused)
         {
+            //On click
             if (CheckForClick())
             {
+                buttonPress();
+                time = 0.0f;
+                pressed = true;
                 //Uncomment once we have no sound
                 //soundEffect.PlayOneShot(noSound);
                 childQueue.Deny();
             }
+            //Make the button come up .5s after being pressed
+            if(pressed)
+            {
+                time += Time.deltaTime;
+                if (time > 0.3f)
+                {
+                    pressed = false;
+                }
+            }
+            else
+            {
+                buttonUnpress();
+            }
+            
         }
     }
 
+    //Checks if the button is clicked
     public bool CheckForClick()
     {
         //if (!pauseMenu.Paused)
@@ -60,4 +88,16 @@ public class NoButton : MonoBehaviour
         }
         return false;
     }
+
+    //Change sprites based on state
+    public void buttonPress()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = spritePressed;
+        
+    }
+    public void buttonUnpress()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = spriteUnpressed;
+    }
+
 }
