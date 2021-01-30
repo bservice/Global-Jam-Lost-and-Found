@@ -56,9 +56,9 @@ public class PauseTest : MonoBehaviour
             {
                 //playButton.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 paused = true;
-                pauseMenu.transform.position = new Vector3(0.024f, -0.097f, 1);
-                playButton.transform.position = new Vector3(-1.63f, -0.54f, 1);
-                exitButton.transform.position = new Vector3(2.19f, -0.54f, 1);
+                pauseMenu.transform.position = new Vector3(0.0f, 0.07f, 1);
+                playButton.transform.position = new Vector3(-0.3f, -0.1f, 1);
+                exitButton.transform.position = new Vector3(0.3f, -0.1f, 1);
                 pauseButton.GetComponent<PausePlay>().Clicked = false;
                 //playButton.GetComponent<BoxCollider2D>().transform.position = new Vector3(-0.269f, -0.276f, 1);
                 //exitButton.GetComponent<BoxCollider2D>().transform.position = new Vector3(0.342f, -0.276f, 1);
