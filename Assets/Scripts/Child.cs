@@ -6,12 +6,12 @@ public class Child : MonoBehaviour
 {
     public string correctItem;
     public int textBoxNumber; //Number used to figure out what textbox to display
-    private GameObject manager; //Stores the manager for the game
+    private ChildQueue manager; //Stores the manager for the game
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("Manager");
+        manager = FindObjectOfType<ChildQueue>();
     }
 
     // Update is called once per frame
@@ -81,12 +81,12 @@ public class Child : MonoBehaviour
     //Displays textbox relating to correct item's hint
     public void DisplayTextbox()
     {
-        manager.GetComponent<ChildQueue>().textboxes[textBoxNumber].SetActive(true);
+        manager.textboxes[textBoxNumber].SetActive(true);
     }
     //Hides textbox relating to correct item's hint
     public void HideTextbox()
     {
-        manager.GetComponent<ChildQueue>().textboxes[textBoxNumber].SetActive(false);
+        manager.textboxes[textBoxNumber].SetActive(false);
     }
 
 }
