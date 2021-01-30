@@ -61,7 +61,7 @@ public class ChildQueue : MonoBehaviour
     {
         style = new GUIStyle();
         style.fontSize = 25;
-        style.normal.textColor = Color.white;
+        style.normal.textColor = Color.black;
         scoreHolder = FindObjectOfType<ScoreHolder>();
         soundEffect = GetComponent<AudioSource>();
         availableItems = new List<PickUp>();
@@ -71,8 +71,7 @@ public class ChildQueue : MonoBehaviour
         AssignItemsToChildren();
         CreateNewChild();
         score = 0;
-        usedItems = 0;
-        
+        usedItems = 0;        
     }
 
     // Update is called once per frame
@@ -247,7 +246,7 @@ public class ChildQueue : MonoBehaviour
     private void OnGUI()
     {
         //Score
-        GUI.Label(new Rect(90.0f, 42.0f, 22, 19), score.ToString(), style);
+        GUI.Label(new Rect(130.0f, 305.0f, 22, 19), score.ToString(), style);
     }
 
     //End game method will be called once there are no more kids or there are no items left
