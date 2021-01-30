@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; // Need to add this
 
 public class ChildQueue : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class ChildQueue : MonoBehaviour
     public AudioClip incorrect;
 
     //Style for score text
-    private GUIStyle style;
+    //private GUIStyle style;
+    public Text scoreText;
 
     //Score
     private int score;
@@ -59,9 +61,9 @@ public class ChildQueue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        style = new GUIStyle();
-        style.fontSize = 25;
-        style.normal.textColor = Color.black;
+        //style = new GUIStyle();
+        //style.fontSize = 25;
+        //style.normal.textColor = Color.black;
         scoreHolder = FindObjectOfType<ScoreHolder>();
         soundEffect = GetComponent<AudioSource>();
         availableItems = new List<PickUp>();
@@ -90,6 +92,7 @@ public class ChildQueue : MonoBehaviour
                 GameOver();
             }
         }
+        scoreText.text = "" + score;
     }
 
     //Uses the active child and active item to use Child's check item method
@@ -243,11 +246,11 @@ public class ChildQueue : MonoBehaviour
     }
 
     //Displaying the score
-    private void OnGUI()
+    /*private void OnGUI()
     {
         //Score
         GUI.Label(new Rect(130.0f, 300.0f, 22, 19), score.ToString(), style);
-    }
+    }*/
 
     //End game method will be called once there are no more kids or there are no items left
     public void GameOver()
