@@ -43,7 +43,10 @@ public class ChildQueue : MonoBehaviour
     public PauseTest pauseMenu;
 
     //List of all the textboxes 
-    public List<GameObject> textboxes; 
+    public List<GameObject> textboxes;
+
+    //List of "No" items
+    private List<string> noItems;
 
 
     //Property to get the number of possible children
@@ -62,6 +65,8 @@ public class ChildQueue : MonoBehaviour
         soundEffect = GetComponent<AudioSource>();
         availableItems = new List<PickUp>();
         GetAvailableItems();
+        noItems = new List<string>();
+        FillNoList();
         AssignItemsToChildren();
         CreateNewChild();
         score = 0;
@@ -203,7 +208,12 @@ public class ChildQueue : MonoBehaviour
             //If there are still children that need an assignment and there are no items left, the rest get "none"
             else
             {
-                possibleChildren[i].AssignItem("None");
+                //Get random number in range of the list
+                int rand = Random.Range(0, noItems.Count);
+                //Assign child one of the 4 "No items"
+                possibleChildren[i].AssignItem(noItems[rand]);
+                //Remove the no item from availibility
+                noItems.RemoveAt(rand);
             }
         }
     }
@@ -241,6 +251,15 @@ public class ChildQueue : MonoBehaviour
     {
         scoreHolder.GetScore(score);
         SceneManager.LoadScene("GameOver");
+    }
+
+    //Fill no items list with the 4 no's
+    public void FillNoList()
+    {
+        noItems.Add("No 1");
+        noItems.Add("No 2");
+        noItems.Add("No 3");
+        noItems.Add("No 4");
     }
 
 }

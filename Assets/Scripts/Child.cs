@@ -34,9 +34,21 @@ public class Child : MonoBehaviour
     public void AssignItem(PickUp item)
     {
         correctItem = item.name;
+        AssignTextBox();
+    }
 
+    //Overloaded method for children with no real item
+    public void AssignItem(string item)
+    {
+        correctItem = item;
+        AssignTextBox();
+    }
+
+    //Method assigns textbox
+    public void AssignTextBox()
+    {
         //Sets the child's dialogue hint to match the item they have
-        switch (item.name)
+        switch (correctItem)
         {
             case "Ball": textBoxNumber = 0; break;
             case "Blocks": textBoxNumber = 1; break;
@@ -58,16 +70,12 @@ public class Child : MonoBehaviour
             case "RC Car": textBoxNumber = 17; break;
             case "Watch": textBoxNumber = 18; break;
             case "Water Bottle": textBoxNumber = 19; break;
-            case "Wooden Sword": textBoxNumber = 20; break;
+            case "Sword": textBoxNumber = 20; break;
             case "Yo-Yo": textBoxNumber = 21; break;
-            case "Signed Ball": textBoxNumber = 0; break;
+            case "Bag": textBoxNumber = 22; break;
+            case "Ball Alt": textBoxNumber = 23; break;
+            case "No 4": textBoxNumber = 24; break;
         }
-    }
-
-    //Overloaded method for children with no real item
-    public void AssignItem(string item)
-    {
-        correctItem = item;
     }
 
     //Displays textbox relating to correct item's hint
