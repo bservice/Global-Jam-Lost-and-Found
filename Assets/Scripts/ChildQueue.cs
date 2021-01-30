@@ -81,7 +81,7 @@ public class ChildQueue : MonoBehaviour
         if (!pauseMenu.Paused)
         {
             //Only allow update if there are still available children and items 
-            if (possibleChildren.Count >= 0 && usedItems < 15)
+            if (possibleChildren.Count >= 0 && usedItems < 15 && activeChild != null)
             {
                 UpdateChild();
             }
