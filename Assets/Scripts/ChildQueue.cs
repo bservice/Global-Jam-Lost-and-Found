@@ -246,7 +246,7 @@ public class ChildQueue : MonoBehaviour
     private void OnGUI()
     {
         //Score
-        GUI.Label(new Rect(130.0f, 305.0f, 22, 19), score.ToString(), style);
+        GUI.Label(new Rect(130.0f, 300.0f, 22, 19), score.ToString(), style);
     }
 
     //End game method will be called once there are no more kids or there are no items left
