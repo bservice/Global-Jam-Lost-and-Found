@@ -25,7 +25,6 @@ public class PauseTest : MonoBehaviour
         pauseMenu.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
         playButton.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
         exitButton.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
-        //exitButton.gameObject.GetComponent<SpriteRenderer>().color = new Color(210f / 255f, 198f / 255f, 140f / 255f);
     }
 
     // Update is called once per frame
@@ -33,10 +32,12 @@ public class PauseTest : MonoBehaviour
     {
         if (paused)
         {
+            //Move pause button out of the way when paused, open book
             pauseButton.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
+            //Play game when button clicked
             if (playButton.GetComponent<PausePlay>().Clicked)
             {
-                //playButton.gameObject.GetComponent<SpriteRenderer>().color = new Color(210f / 255f, 198f / 255f, 140f / 255f);
+                //Move items out of the way when not paused
                 pauseMenu.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
                 playButton.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
                 exitButton.transform.position = new Vector3(100.0f, 100.0f, 0.0f);
@@ -52,18 +53,17 @@ public class PauseTest : MonoBehaviour
         }
         else
         {
+            //Move pause button back to desk
             pauseButton.transform.position = new Vector3(-2.68f, -1.2f, 0.0f);
-            //playButton.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            //Pause when button clicked
             if (pauseButton.GetComponent<PausePlay>().Clicked)
             {
-                //playButton.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                //When paused, move items back to position
                 paused = true;
                 pauseMenu.transform.position = new Vector3(0.09000015f, -0.06900012f, 1);
                 playButton.transform.position = new Vector3(1.255f, 0.75f, 1);
                 exitButton.transform.position = new Vector3(1.305f, -0.2470001f, 1);
                 pauseButton.GetComponent<PausePlay>().Clicked = false;
-                //playButton.GetComponent<BoxCollider2D>().transform.position = new Vector3(-0.269f, -0.276f, 1);
-                //exitButton.GetComponent<BoxCollider2D>().transform.position = new Vector3(0.342f, -0.276f, 1);
             }
         }
     }

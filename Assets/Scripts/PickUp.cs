@@ -6,8 +6,6 @@ public class PickUp : MonoBehaviour
 {
     public string name;
     private ChildQueue childQueue;
-    //public InteractingObjects interObjRef;
-    //public GameManager gManager;
 
     public bool frozen = false;
     public bool talking = false;
@@ -18,14 +16,6 @@ public class PickUp : MonoBehaviour
 
     private AudioSource soundEffect;
 
-    // Cursor Controls
-    public Texture2D specialTexture;
-    public Texture2D normalTexture;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
-
-    // Dialogue for the item once it's in the inventory.
-    //public Dialogue invDialogue;
     public string Name
     {
         get { return name; }
@@ -38,16 +28,6 @@ public class PickUp : MonoBehaviour
         pauseMenu = FindObjectOfType<PauseTest>();
         soundEffect = GetComponent<AudioSource>();
         childQueue = FindObjectOfType<ChildQueue>();
-
-
-        //gManager = FindObjectOfType<GameManager>();
-
-        /*
-        if(pauseMenu == null)
-        {
-            pauseMenu = new PauseTest();
-        }
-        */
     }
 
     // Update is called once per frame
@@ -93,16 +73,5 @@ public class PickUp : MonoBehaviour
                 }
             }
             return false;
-    }
-
-    // Cursor changers
-    void OnMouseEnter()
-    {
-        Cursor.SetCursor(specialTexture, hotSpot, cursorMode);
-    }
-
-    void OnMouseExit()
-    {
-        Cursor.SetCursor(normalTexture, hotSpot, cursorMode);
     }
 }
