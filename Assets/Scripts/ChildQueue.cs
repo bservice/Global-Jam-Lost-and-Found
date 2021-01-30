@@ -231,6 +231,8 @@ public class ChildQueue : MonoBehaviour
         {
             //Move child way out of the way
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
+            //Remove the active child's hint
+            activeChild.HideTextbox();
             //Set the active child to null so that it can be set new
             activeChild = null;
             //As long as the available items is above zero, keep creating new children

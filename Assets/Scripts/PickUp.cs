@@ -55,7 +55,7 @@ public class PickUp : MonoBehaviour
     {
         if (!pauseMenu.Paused)
         {
-            if (childQueue.ChildCount > 0)
+            if (childQueue.ChildCount >= 0)
             {
                 if (CheckForClick())
                 {

@@ -6,7 +6,7 @@ public class Child : MonoBehaviour
 {
     public string correctItem;
     public int textBoxNumber; //Number used to figure out what textbox to display
-    public GameObject manager; //Stores the manager for the game
+    private GameObject manager; //Stores the manager for the game
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +62,7 @@ public class Child : MonoBehaviour
             case "Juice Box": textBoxNumber = 9; break;
             case "Key": textBoxNumber = 10; break;
             case "Lipstick": textBoxNumber = 11; break;
-            case "Lunchbox": textBoxNumber = 12; break;
+            case "Lunch Box": textBoxNumber = 12; break;
             case "No 1": textBoxNumber = 13; break;
             case "No 2": textBoxNumber = 14; break;
             case "No 3": textBoxNumber = 15; break;
