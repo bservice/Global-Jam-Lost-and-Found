@@ -10,7 +10,7 @@ public class NoButton : MonoBehaviour
 
     public PauseTest pauseMenu;
 
-    public Sprite spriteUnpressed;
+    private Sprite spriteUnpressed;
 
     public Sprite spritePressed; //The sprite to display when the button is pressed
 
