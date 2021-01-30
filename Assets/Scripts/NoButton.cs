@@ -10,11 +10,11 @@ public class NoButton : MonoBehaviour
 
     public PauseTest pauseMenu;
 
-    private Sprite spriteUnpressed;
+    private Sprite spriteUnpressed; //The sprite to display when the button is not pressed
 
     public Sprite spritePressed; //The sprite to display when the button is pressed
 
-    bool pressed;
+    bool pressed; //True if button is pressed, false when it becomes unpressed (after .5s)
 
     float time; //Keeps the button down for a certain amount of time
 
