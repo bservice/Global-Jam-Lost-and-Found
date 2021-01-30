@@ -5231,6 +5231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childQueue: {fileID: 1870449767}
   pauseMenu: {fileID: 549870143}
+  spritePressed: {fileID: 21300000, guid: 0895aa390d0f69842ad9100edef79169, type: 3}
 --- !u!61 &2022574613
 BoxCollider2D:
   m_ObjectHideFlags: 0
