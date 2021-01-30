@@ -8,6 +8,8 @@ public class NoButton : MonoBehaviour
 
     private AudioSource soundEffect;
 
+    public PauseTest pauseMenu;
+
     //Uncomment once we have no sound
     //public AudioClip noSound;
 
@@ -22,11 +24,14 @@ public class NoButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CheckForClick())
+        if (!pauseMenu.Paused)
         {
-            //Uncomment once we have no sound
-            //soundEffect.PlayOneShot(noSound);
-            childQueue.Deny();
+            if (CheckForClick())
+            {
+                //Uncomment once we have no sound
+                //soundEffect.PlayOneShot(noSound);
+                childQueue.Deny();
+            }
         }
     }
 
