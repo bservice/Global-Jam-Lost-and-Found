@@ -49,6 +49,7 @@ public class ChildQueue : MonoBehaviour
     private List<string> noItems;
 
 
+
     //Property to get the number of possible children
     public int ChildCount
     {
@@ -71,6 +72,7 @@ public class ChildQueue : MonoBehaviour
         CreateNewChild();
         score = 0;
         usedItems = 0;
+        
     }
 
     // Update is called once per frame
@@ -79,7 +81,7 @@ public class ChildQueue : MonoBehaviour
         if (!pauseMenu.Paused)
         {
             //Only allow update if there are still available children and items 
-            if (possibleChildren.Count > 0 && usedItems < 15)
+            if (possibleChildren.Count >= 0 && usedItems < 15 && activeChild != null)
             {
                 UpdateChild();
             }
@@ -231,6 +233,8 @@ public class ChildQueue : MonoBehaviour
         {
             //Move child way out of the way
             activeChild.transform.position = new Vector2(200.0f, 200.0f);
+            //Remove the active child's hint
+            activeChild.HideTextbox();
             //Set the active child to null so that it can be set new
             activeChild = null;
             //As long as the available items is above zero, keep creating new children
