@@ -11,13 +11,20 @@ public class ScoreHolder : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Destroy score holder on main menu so it resets for game over
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Destroy(this);
+            Destroy(this.gameObject);
+        }
+
         textScore = FindObjectOfType<Text>();
         if (SceneManager.GetActiveScene().name == "GameOver")
         {
