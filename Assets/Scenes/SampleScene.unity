@@ -181,6 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childQueue: {fileID: 1079620695}
+  pauseMenu: {fileID: 0}
+  spritePressed: {fileID: 0}
 --- !u!212 &19396176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -306,10 +308,6 @@ MonoBehaviour:
   name: Lunchbox
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &48069711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -449,10 +447,6 @@ MonoBehaviour:
   name: Cactus
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &167293800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -670,10 +664,6 @@ MonoBehaviour:
   name: Car
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!61 &259106044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -774,10 +764,6 @@ MonoBehaviour:
   name: Pencil Case
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &266921212
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -874,6 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &359098983
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1023,6 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &495133256
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1357,6 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &619644100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1453,6 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &694658159
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1600,6 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!1 &752525770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,10 +1651,6 @@ MonoBehaviour:
   name: Glove
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &752525773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1965,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!1 &920227219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,10 +2027,6 @@ MonoBehaviour:
   name: RC Truck
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &920227223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2176,6 +2160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &993472019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2286,6 +2271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1046492703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2368,6 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1047728200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2628,6 +2615,9 @@ MonoBehaviour:
   - {x: 0, y: 0}
   correct: {fileID: 8300000, guid: b397bd9f7e3a02643b6991f12406d348, type: 3}
   incorrect: {fileID: 8300000, guid: 59f2a05fd3e26ea47998fe534129cdd0, type: 3}
+  scoreText: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  textboxes: []
 --- !u!1 &1089601386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1089601389
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2798,10 +2789,6 @@ MonoBehaviour:
   name: Yoyo
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1162073482
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2949,6 +2936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!1 &1246425394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,10 +3011,6 @@ MonoBehaviour:
   name: Bag
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1246425398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3152,10 +3136,6 @@ MonoBehaviour:
   name: Toy Sword
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1251032653
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3267,10 +3247,6 @@ MonoBehaviour:
   name: Lipstick
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1292494692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3410,10 +3386,6 @@ MonoBehaviour:
   name: Toy Cat
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1334483641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3510,6 +3482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1335064050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3606,6 +3579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1384669142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3702,6 +3676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1469498853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3798,6 +3773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1470496976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3894,6 +3870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1611197152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3976,6 +3953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &1638473801
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4101,10 +4079,6 @@ MonoBehaviour:
   name: Gameboy
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1744660862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4293,10 +4267,6 @@ MonoBehaviour:
   name: Key
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1875896281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4408,10 +4378,6 @@ MonoBehaviour:
   name: Pen
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1887074143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4624,10 +4590,6 @@ MonoBehaviour:
   name: Ball
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1974276317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4793,10 +4755,6 @@ MonoBehaviour:
   name: Coat
   frozen: 0
   talking: 0
-  specialTexture: {fileID: 0}
-  normalTexture: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!212 &1983190301
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4879,6 +4837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &2044093154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4975,6 +4934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctItem: 
+  textBoxNumber: 0
 --- !u!212 &2135613277
 SpriteRenderer:
   m_ObjectHideFlags: 0
