@@ -5991,6 +5991,7 @@ MonoBehaviour:
   noSound3: {fileID: 8300000, guid: 74b77f8635cb2fa41bb39fdbeef9403f, type: 3}
   noSound4: {fileID: 8300000, guid: f481c97fd57829d4aa49fa215bc0df34, type: 3}
   noSound5: {fileID: 8300000, guid: d2e0c77826095bf47a4afe83d643d919, type: 3}
+  noSound6: {fileID: 8300000, guid: d54a45fd5aa28fd48851747d50c68d2c, type: 3}
 --- !u!61 &2022574613
 BoxCollider2D:
   m_ObjectHideFlags: 0
