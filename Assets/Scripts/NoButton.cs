@@ -18,11 +18,13 @@ public class NoButton : MonoBehaviour
 
     float time; //Keeps the button down for a certain amount of time
 
-    //Uncomment once we have no sound
-    //public AudioClip noSound1;
-    //public AudioClip noSound2;
-    //public AudioClip noSound3;
-    //public AudioClip noSound4;
+    //Audio clips
+    public AudioClip noSound1;
+    public AudioClip noSound2;
+    public AudioClip noSound3;
+    public AudioClip noSound4;
+    public AudioClip noSound5;
+    public AudioClip noSound6;
 
     Vector2 cursorPosition;
 
@@ -44,9 +46,8 @@ public class NoButton : MonoBehaviour
                 buttonPress();
                 time = 0.0f;
                 pressed = true;
-                //Uncomment once we have no sound
-                /*
-                int rand = Random.Range(0, 4);
+                //Getting random no sound                
+                int rand = Random.Range(0, 6);
                 switch(rand)
                 {
                     case 0:
@@ -61,8 +62,14 @@ public class NoButton : MonoBehaviour
                     case 3:
                         soundEffect.PlayOneShot(noSound4);
                         break;
+                    case 4:
+                        soundEffect.PlayOneShot(noSound5);
+                        break;
+                    case 5:
+                        soundEffect.PlayOneShot(noSound6);
+                        break;
                 }
-                */
+                
                 childQueue.Deny();
             }
             //Make the button come up .5s after being pressed
